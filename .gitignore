@@ -10,14 +10,17 @@ __pycache__/
 *.mp4
 *.mp3
 *.webp
+*.webm
 #*.png
 #*.jpg
 *.wav
 *.opus
 
-# ffmpeg and Temp
+# Files created by program
 ffmpeg/
 Temp/
+yt-dlp/
+currentCommand.txt
 
 # Distribution / packaging
 .Python
