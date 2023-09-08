@@ -1,4 +1,9 @@
 @echo off
+REM Checks if parameters were passed into this file
+if not "%~1"=="" (
+	call "%~dp0yt-dlp\yt-dlp.cmd" %*
+	EXIT /B %ERRORLEVEL% 
+)
 REM Ask user for what they want to do
 REM pasteing youtube link will use last setting or if first time, just video.
 REM 1=download
