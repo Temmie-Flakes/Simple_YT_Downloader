@@ -11,6 +11,11 @@ __pycache__/
 *.mp3
 *.webp
 *.webm
+*.3gp
+*.flac
+*.m4a
+*.mhtml
+*.ogg
 #*.png
 #*.jpg
 *.wav
