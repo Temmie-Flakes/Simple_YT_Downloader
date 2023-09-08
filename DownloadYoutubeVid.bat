@@ -34,10 +34,13 @@ if defined videoFormat (
 	set videoFormat=--format %videoFormat%
 )
 
+
 if %flag%==1 (
-	REM Ask the user for the path of the video
-	echo Enter the path of the video: 
-	set /p videopath=">>"
+	if not defined videopath (
+		REM Ask the user for the path of the video
+		echo Enter the path of the video: 
+		set /p videopath=">>"
+	)
 	echo "%~dp0yt-dlp\yt-dlp.cmd" "%%videopath%%" %extractAudio% %ffmpegLocation% --paths "%~dp0Temp" %audioFormat% %videoFormat%> "%~dp0currentCommand.txt"
 ) else (
 	if not exist "%~dp0currentCommand.txt" (
@@ -61,7 +64,7 @@ REM --------------------FUNCTIONS---------------------------
 
 :choose_video_format
 	REM Ask the user for the format of video
-	echo What video format should it be:&echo\Leave blank)same as source (usually webm^)&echo\1)mp4&echo\2)3gp&echo\3)webm (probably^)&echo\4)Custom format&echo\
+	echo What video format should it be:&echo\Paste URL)same as source (usually webm^)&echo\Leave Blank)same as source&echo\1)mp4&echo\2)3gp&echo\3)webm (probably^)&echo\4)Custom format&echo\
 	set /p videoFormatChoice=">>"
 	if "%videoFormatChoice%"=="1" (
 		set videoFormat=mp4
@@ -73,11 +76,14 @@ REM --------------------FUNCTIONS---------------------------
 	) else (
 		echo using same format as source&echo\
 		set videoFormat=
+		if defined videoFormatChoice (
+		set videopath=%videoFormatChoice%
+		)
 	)
 EXIT /B 0
 :choose_audio_format
 	REM Ask the user for the format of audio
-	echo What audio format should it be:&echo\Leave blank)same as source&echo\1)mp3&echo\2)m4a&echo\3)wav&echo\4)flac&echo\5)aac&echo\6)Opus&echo\7)Vorbis&echo\8)Custom format&echo\
+	echo What audio format should it be:&echo\Paste URL)same as source&echo\Leave Blank)same as source&echo\1)mp3&echo\2)m4a&echo\3)wav&echo\4)flac&echo\5)aac&echo\6)Opus&echo\7)Vorbis&echo\8)Custom format&echo\
 	set /p audioFormatChoice=">>"
 	if "%audioFormatChoice%"=="1" (
 		set audioFormat=mp3
@@ -99,7 +105,11 @@ EXIT /B 0
 	) else (
 		echo using same format as source&echo\
 		set audioFormat=
+		if defined audioFormatChoice (
+			set videopath=%audioFormatChoice%
+		)
 	)
+	
 EXIT /B 0
 
 

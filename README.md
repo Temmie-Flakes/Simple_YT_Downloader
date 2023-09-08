@@ -10,8 +10,10 @@ how to use:
 1.	run the batch file
 2.	type 1 for video or 2 for audio or just paste a youtube link to use the most recent settings  
 If it's the first time running the script (or currentCommand.txt is missing) it will default to downloading video 
-3.  paste a youtube link into the console (if you chose 1)  
-if you chose 2 then you can enter the audio format (mp3, wav, ...) or leave blank to auto format to same as source
+3.  (if you chose 1 or 2)  
+choose which format you want from the list (or custom format) or leave blank to auto format to same as source  
+you can paste the URL to download the source format of audio or video (depending on step 1)
+4. Paste video link
 - the output will appear in the same directory as the batch file (or wherever the main commandline is being run)
 
 Notes:
@@ -21,7 +23,6 @@ Notes:
 
 Todo:
 ----
-- [ ] add pass-through flags if using secondary batch file with the current values as default.
 - [ ] add more flags to be added if wanted through the console interface
 - [ ] add ability to download multiple videos at once.
 
