@@ -64,12 +64,14 @@ REM --------------------FUNCTIONS---------------------------
 
 :choose_video_format
 	REM Ask the user for the format of video
-	echo What video format should it be:&echo\Paste URL)same as source (usually webm^)&echo\Leave Blank)same as source&echo\1)mp4&echo\2)3gp&echo\3)webm (probably^)&echo\4)Custom format&echo\
+	echo What video format should it be:&echo\Paste URL)same as source (usually webm^)&echo\Leave Blank)same as source&echo\1)mp4&echo\2)3gp&echo\3)webm&echo\4)Custom format&echo\
 	set /p videoFormatChoice=">>"
 	if "%videoFormatChoice%"=="1" (
-		set videoFormat=mp4
+		set videoFormat="bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
 	) else if "%videoFormatChoice%"=="2" (
-		set videoFormat=3gp
+		set videoFormat="bv*[ext=3gp]+ba[ext=m4a]/b[ext=3gp]"
+	) else if "%videoFormatChoice%"=="3" (
+		set videoFormat="bv*[ext=webm]+ba[ext=webm]/b[ext=webm]"
 	) else if "%videoFormatChoice%"=="4" (
 		echo  Enter format:
 		set /p videoFormat=">>"
