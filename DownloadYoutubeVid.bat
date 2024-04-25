@@ -63,55 +63,55 @@ EXIT /B %ERRORLEVEL%
 REM --------------------FUNCTIONS---------------------------
 
 :choose_video_format
-	REM Ask the user for the format of video
-	echo What video format should it be:&echo\Paste URL)same as source (usually webm^)&echo\Leave Blank)same as source&echo\1)mp4&echo\2)3gp&echo\3)webm&echo\4)Custom format&echo\
-	set /p videoFormatChoice=">>"
-	if "%videoFormatChoice%"=="1" (
-		set videoFormat="bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
-	) else if "%videoFormatChoice%"=="2" (
-		set videoFormat="bv*[ext=3gp]+ba[ext=m4a]/b[ext=3gp]"
-	) else if "%videoFormatChoice%"=="3" (
-		set videoFormat="bv*[ext=webm]+ba[ext=webm]/b[ext=webm]"
-	) else if "%videoFormatChoice%"=="4" (
-		echo  Enter format:
-		set /p videoFormat=">>"
-	) else (
-		echo using same format as source&echo\
-		set videoFormat=
-		if defined videoFormatChoice (
-		set videopath=%videoFormatChoice%
-		)
+REM Ask the user for the format of video
+echo What video format should it be:&echo\Paste URL)same as source (usually webm^)&echo\Leave Blank)same as source&echo\1)mp4&echo\2)3gp&echo\3)webm&echo\4)Custom format&echo\
+set /p videoFormatChoice=">>"
+if "%videoFormatChoice%"=="1" (
+	set videoFormat="bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
+) else if "%videoFormatChoice%"=="2" (
+	set videoFormat="bv*[ext=3gp]+ba[ext=m4a]/b[ext=3gp]"
+) else if "%videoFormatChoice%"=="3" (
+	set videoFormat="bv*[ext=webm]+ba[ext=webm]/b[ext=webm]"
+) else if "%videoFormatChoice%"=="4" (
+	echo  Enter format:
+	set /p videoFormat=">>"
+) else (
+	echo using same format as source&echo\
+	set videoFormat=
+	if defined videoFormatChoice (
+	set videopath=%videoFormatChoice%
 	)
+)
 EXIT /B 0
+
 :choose_audio_format
-	REM Ask the user for the format of audio
-	echo What audio format should it be:&echo\Paste URL)same as source&echo\Leave Blank)same as source&echo\1)mp3&echo\2)m4a&echo\3)wav&echo\4)flac&echo\5)aac&echo\6)Opus&echo\7)Vorbis&echo\8)Custom format&echo\
-	set /p audioFormatChoice=">>"
-	if "%audioFormatChoice%"=="1" (
-		set audioFormat=mp3
-	) else if "%audioFormatChoice%"=="2" (
-		set audioFormat=m4a
-	) else if "%audioFormatChoice%"=="3" (
-		set audioFormat=wav
-	) else if "%audioFormatChoice%"=="4" (
-		set audioFormat=flac
-	) else if "%audioFormatChoice%"=="5" (
-		set audioFormat=aac
-	) else if "%audioFormatChoice%"=="6" (
-		set audioFormat=opus
-	) else if "%audioFormatChoice%"=="7" (
-		set audioFormat=vorbis
-	) else if "%audioFormatChoice%"=="8" (
-		echo  Enter format:
-		set /p audioFormat=">>"
-	) else (
-		echo using same format as source&echo\
-		set audioFormat=
-		if defined audioFormatChoice (
-			set videopath=%audioFormatChoice%
-		)
+REM Ask the user for the format of audio
+echo What audio format should it be:&echo\Paste URL)same as source&echo\Leave Blank)same as source&echo\1)mp3&echo\2)m4a&echo\3)wav&echo\4)flac&echo\5)aac&echo\6)Opus&echo\7)Vorbis&echo\8)Custom format&echo\
+set /p audioFormatChoice=">>"
+if "%audioFormatChoice%"=="1" (
+	set audioFormat=mp3
+) else if "%audioFormatChoice%"=="2" (
+	set audioFormat=m4a
+) else if "%audioFormatChoice%"=="3" (
+	set audioFormat=wav
+) else if "%audioFormatChoice%"=="4" (
+	set audioFormat=flac
+) else if "%audioFormatChoice%"=="5" (
+	set audioFormat=aac
+) else if "%audioFormatChoice%"=="6" (
+	set audioFormat=opus
+) else if "%audioFormatChoice%"=="7" (
+	set audioFormat=vorbis
+) else if "%audioFormatChoice%"=="8" (
+	echo  Enter format:
+	set /p audioFormat=">>"
+) else (
+	echo using same format as source&echo\
+	set audioFormat=
+	if defined audioFormatChoice (
+		set videopath=%audioFormatChoice%
 	)
-	
+)
 EXIT /B 0
 
 
